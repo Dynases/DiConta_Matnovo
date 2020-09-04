@@ -1,0 +1,5 @@
+IP=localhost
+User=sa
+Password=123
+Name_DB=BDDiconMatnovo
+Folder_Root=C:\BD
