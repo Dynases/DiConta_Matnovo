@@ -32,7 +32,6 @@ Partial Class F0_ComprobanteCompra
         Me.ButtonX1 = New DevComponents.DotNetBar.ButtonX()
         Me.GroupPanel2 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.tbinrofactura = New DevComponents.DotNetBar.Controls.TextBoxX()
-        Me.tbDui = New DevComponents.Editors.IntegerInput()
         Me.GroupPanel5 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.tbCreditoFiscal = New DevComponents.Editors.DoubleInput()
         Me.LabelX4 = New DevComponents.DotNetBar.LabelX()
@@ -61,10 +60,10 @@ Partial Class F0_ComprobanteCompra
         Me.LabelX13 = New DevComponents.DotNetBar.LabelX()
         Me.LabelX12 = New DevComponents.DotNetBar.LabelX()
         Me.MEP = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.tbDui = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.PanelEx1.SuspendLayout()
         Me.PanelInferior.SuspendLayout()
         Me.GroupPanel2.SuspendLayout()
-        CType(Me.tbDui, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupPanel5.SuspendLayout()
         CType(Me.tbCreditoFiscal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbImporteBaseCreditoFiscal, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -173,8 +172,8 @@ Partial Class F0_ComprobanteCompra
         Me.GroupPanel2.BackColor = System.Drawing.Color.Transparent
         Me.GroupPanel2.CanvasColor = System.Drawing.SystemColors.Control
         Me.GroupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.GroupPanel2.Controls.Add(Me.tbinrofactura)
         Me.GroupPanel2.Controls.Add(Me.tbDui)
+        Me.GroupPanel2.Controls.Add(Me.tbinrofactura)
         Me.GroupPanel2.Controls.Add(Me.GroupPanel5)
         Me.GroupPanel2.Controls.Add(Me.LabelX1)
         Me.GroupPanel2.Controls.Add(Me.tbTipo)
@@ -240,21 +239,6 @@ Partial Class F0_ComprobanteCompra
         Me.tbinrofactura.PreventEnterBeep = True
         Me.tbinrofactura.Size = New System.Drawing.Size(150, 23)
         Me.tbinrofactura.TabIndex = 4
-        '
-        'tbDui
-        '
-        '
-        '
-        '
-        Me.tbDui.BackgroundStyle.Class = "DateTimeInputBackground"
-        Me.tbDui.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.tbDui.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
-        Me.tbDui.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbDui.Location = New System.Drawing.Point(154, 205)
-        Me.tbDui.MinValue = 0
-        Me.tbDui.Name = "tbDui"
-        Me.tbDui.Size = New System.Drawing.Size(150, 23)
-        Me.tbDui.TabIndex = 5
         '
         'GroupPanel5
         '
@@ -680,6 +664,21 @@ Partial Class F0_ComprobanteCompra
         '
         Me.MEP.ContainerControl = Me
         '
+        'tbDui
+        '
+        '
+        '
+        '
+        Me.tbDui.Border.Class = "TextBoxBorder"
+        Me.tbDui.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbDui.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbDui.Location = New System.Drawing.Point(155, 206)
+        Me.tbDui.MaxLength = 14
+        Me.tbDui.Name = "tbDui"
+        Me.tbDui.PreventEnterBeep = True
+        Me.tbDui.Size = New System.Drawing.Size(150, 23)
+        Me.tbDui.TabIndex = 115
+        '
         'F0_ComprobanteCompra
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -699,7 +698,6 @@ Partial Class F0_ComprobanteCompra
         Me.PanelInferior.ResumeLayout(False)
         Me.GroupPanel2.ResumeLayout(False)
         Me.GroupPanel2.PerformLayout()
-        CType(Me.tbDui, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupPanel5.ResumeLayout(False)
         CType(Me.tbCreditoFiscal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbImporteBaseCreditoFiscal, System.ComponentModel.ISupportInitialize).EndInit()
@@ -742,11 +740,11 @@ Partial Class F0_ComprobanteCompra
     Friend WithEvents LabelX1 As DevComponents.DotNetBar.LabelX
     Friend WithEvents tbSujetoCreditoFiscal As DevComponents.Editors.DoubleInput
     Friend WithEvents GroupPanel5 As DevComponents.DotNetBar.Controls.GroupPanel
-    Friend WithEvents tbDui As DevComponents.Editors.IntegerInput
     Friend WithEvents LabelX2 As DevComponents.DotNetBar.LabelX
     Friend WithEvents tbCreditoFiscal As DevComponents.Editors.DoubleInput
     Friend WithEvents LabelX4 As DevComponents.DotNetBar.LabelX
     Friend WithEvents tbImporteBaseCreditoFiscal As DevComponents.Editors.DoubleInput
     Friend WithEvents LabelX3 As DevComponents.DotNetBar.LabelX
     Friend WithEvents tbinrofactura As DevComponents.DotNetBar.Controls.TextBoxX
+    Friend WithEvents tbDui As DevComponents.DotNetBar.Controls.TextBoxX
 End Class
