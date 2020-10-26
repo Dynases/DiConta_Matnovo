@@ -381,7 +381,62 @@ Public Class F1_AsientoContableVentas
 
     End Sub
 
+    Private Sub _prCargarListadoVenta(dt As DataTable)
 
+
+
+        grVentas.DataSource = dt
+        grVentas.RetrieveStructure()
+        grVentas.AlternatingColors = True
+        'venta.tanumi as IdVenta, venta.tafdoc As FechaVenta, cliente.yddesc As Cliente, venta.tatotal as TotalVenta
+        With grVentas.RootTable.Columns("IdVenta")
+            .Width = 90
+            .Caption = "IdVenta"
+            .Visible = True
+            .TextAlignment = TextAlignment.Far
+
+
+        End With
+
+
+
+        With grVentas.RootTable.Columns("FechaVenta")
+            .Width = 90
+            .Caption = "FECHA"
+            .FormatString = "dd/MM/yyyy"
+            .Visible = True
+        End With
+
+
+
+        With grVentas.RootTable.Columns("Cliente")
+            .Width = 300
+            .Caption = "CLIENTE"
+            .Visible = True
+        End With
+
+        With grVentas.RootTable.Columns("TotalVenta")
+            .Width = 150
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = True
+            .Caption = "TOTAL"
+            .AggregateFunction = AggregateFunction.Sum
+            .FormatString = "0.00"
+        End With
+
+
+        With grVentas
+            .DefaultFilterRowComparison = FilterConditionOperator.Contains
+            .FilterMode = FilterMode.Automatic
+            .FilterRowUpdateMode = FilterRowUpdateMode.WhenValueChanges
+            .GroupByBoxVisible = False
+            'diseño de la grilla
+            .TotalRow = InheritableBoolean.True
+            .TotalRowFormatStyle.BackColor = Color.Gold
+            .TotalRowPosition = TotalRowPosition.BottomFixed
+        End With
+
+    End Sub
 
     Public Function ObtenerTotales() As Double
         If (cbSucursal.Value >= 1) Then
@@ -426,6 +481,9 @@ Public Class F1_AsientoContableVentas
 
                 If (TipoVenta = 1) Then
                     Dim dtTotales = L_prObtenerTotalesTransaccionVentaContado(tipo, factura, tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
+                    Dim dtVentas As DataTable = L_prListarVentasContado(tipo, factura, tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
+                    _prCargarListadoVenta(dtVentas)
+
                     If (dtTotales.Rows.Count > 0) Then
                         Return dtTotales.Rows(0).Item("total")
 
@@ -436,6 +494,8 @@ Public Class F1_AsientoContableVentas
                 End If
                 If (TipoVenta = 0) Then
                     Dim dtTotales = L_prObtenerTotalesTransaccionVentaCredito(tipo, factura, tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
+                    Dim dtVentas As DataTable = L_prListarVentasCredito(tipo, factura, tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
+                    _prCargarListadoVenta(dtVentas)
                     If (dtTotales.Rows.Count > 0) Then
                         Return dtTotales.Rows(0).Item("total")
 
@@ -956,6 +1016,9 @@ Public Class F1_AsientoContableVentas
             cbSucursal.Value = .GetValue("ifto001numibanco")
         End With
         _prCargarDetalleMovimiento(tbNumi.Text)
+        Dim dt As New DataTable
+        dt = L_prIntegracionDetalleVentas(tbNumi.Text)
+        _prCargarListadoVenta(dt)
 
         LblPaginacion.Text = Str(grmovimientos.Row + 1) + "/" + grmovimientos.RowCount.ToString
 
@@ -1293,9 +1356,9 @@ Public Class F1_AsientoContableVentas
 
     End Sub
 
-    Private Sub grbanco_EditingCell(sender As Object, e As EditingCellEventArgs) Handles grbanco.EditingCell
+    Private Sub grbanco_EditingCell(sender As Object, e As EditingCellEventArgs) Handles grVentas.EditingCell
         'MsgBox("hola")
-        If (e.Column.Index = grbanco.RootTable.Columns("camonto").Index) Then
+        If (e.Column.Index = grVentas.RootTable.Columns("camonto").Index) Then
             e.Cancel = False
         Else
             e.Cancel = True

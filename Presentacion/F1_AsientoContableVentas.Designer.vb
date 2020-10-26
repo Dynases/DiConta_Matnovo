@@ -30,7 +30,7 @@ Partial Class F1_AsientoContableVentas
         Me.SuperTabItem2 = New DevComponents.DotNetBar.SuperTabItem()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.GroupPanelBanco = New DevComponents.DotNetBar.Controls.GroupPanel()
-        Me.grbanco = New Janus.Windows.GridEX.GridEX()
+        Me.grVentas = New Janus.Windows.GridEX.GridEX()
         Me.GrDatos = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.LabelX17 = New DevComponents.DotNetBar.LabelX()
         Me.cbSucursal = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
@@ -69,7 +69,7 @@ Partial Class F1_AsientoContableVentas
         CType(Me.grComprobante, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.GroupPanelBanco.SuspendLayout()
-        CType(Me.grbanco, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grVentas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GrDatos.SuspendLayout()
         CType(Me.cbSucursal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbTipoCambio, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -287,7 +287,7 @@ Partial Class F1_AsientoContableVentas
         '
         Me.GroupPanelBanco.CanvasColor = System.Drawing.SystemColors.Control
         Me.GroupPanelBanco.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.GroupPanelBanco.Controls.Add(Me.grbanco)
+        Me.GroupPanelBanco.Controls.Add(Me.grVentas)
         Me.GroupPanelBanco.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanelBanco.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanelBanco.Location = New System.Drawing.Point(900, 0)
@@ -325,21 +325,21 @@ Partial Class F1_AsientoContableVentas
         Me.GroupPanelBanco.TabIndex = 2
         Me.GroupPanelBanco.Text = "VENTAS"
         '
-        'grbanco
+        'grVentas
         '
-        Me.grbanco.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.grbanco.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grbanco.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grbanco.HeaderFormatStyle.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grbanco.Location = New System.Drawing.Point(0, 0)
-        Me.grbanco.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.grbanco.Name = "grbanco"
-        Me.grbanco.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
-        Me.grbanco.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.grbanco.RowFormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grbanco.Size = New System.Drawing.Size(369, 254)
-        Me.grbanco.TabIndex = 0
-        Me.grbanco.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
+        Me.grVentas.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.grVentas.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.grVentas.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grVentas.HeaderFormatStyle.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grVentas.Location = New System.Drawing.Point(0, 0)
+        Me.grVentas.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.grVentas.Name = "grVentas"
+        Me.grVentas.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
+        Me.grVentas.Office2007CustomColor = System.Drawing.Color.DodgerBlue
+        Me.grVentas.RowFormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grVentas.Size = New System.Drawing.Size(369, 254)
+        Me.grVentas.TabIndex = 0
+        Me.grVentas.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
         'GrDatos
         '
@@ -681,7 +681,7 @@ Partial Class F1_AsientoContableVentas
         CType(Me.grComprobante, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.GroupPanelBanco.ResumeLayout(False)
-        CType(Me.grbanco, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grVentas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GrDatos.ResumeLayout(False)
         Me.GrDatos.PerformLayout()
         CType(Me.cbSucursal, System.ComponentModel.ISupportInitialize).EndInit()
@@ -698,7 +698,7 @@ Partial Class F1_AsientoContableVentas
     Friend WithEvents SuperTabItem2 As DevComponents.DotNetBar.SuperTabItem
     Friend WithEvents Panel2 As Panel
     Friend WithEvents GroupPanelBanco As DevComponents.DotNetBar.Controls.GroupPanel
-    Friend WithEvents grbanco As Janus.Windows.GridEX.GridEX
+    Friend WithEvents grVentas As Janus.Windows.GridEX.GridEX
     Friend WithEvents GrDatos As DevComponents.DotNetBar.Controls.GroupPanel
     Friend WithEvents LabelX17 As DevComponents.DotNetBar.LabelX
     Friend WithEvents cbSucursal As Janus.Windows.GridEX.EditControls.MultiColumnCombo
