@@ -206,7 +206,7 @@ Public Class F0_ComprobanteCompra
 
         Dim numi As String = ""
 
-        _detalleCompras.Rows.Add(1, ffec, fnit, frsocial, fnro, tbDui.Value, fautoriz, fmonto, sujetoCreditoFiscal, subTotal, fdesc, importeBaseCreditoFiscal, creditoFiscal, fccont, tbTipo.Value, 0, 0)
+        _detalleCompras.Rows.Add(1, ffec, fnit, frsocial, fnro, tbDui.Text, fautoriz, fmonto, sujetoCreditoFiscal, subTotal, fdesc, importeBaseCreditoFiscal, creditoFiscal, fccont, tbTipo.Value, 0, 0)
 
         seleccionado = True
 

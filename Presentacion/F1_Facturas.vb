@@ -114,7 +114,7 @@ Public Class F1_Facturas
         TbNroAutorizacion.ReadOnly = False
         TbCodigoControl.ReadOnly = False
 
-        tbDui.IsInputReadOnly = False
+        tbDui.ReadOnly = False
         tbTipo.ReadOnly = False
 
         TbdMontoFactura.IsInputReadOnly = False
@@ -232,7 +232,7 @@ Public Class F1_Facturas
         fccont = TbCodigoControl.Text
 
 
-        Dim res As Boolean = L_fnCompraComprobanteModificar(tbNumi.Text, ffec, fnit, frsocial, fnro, tbDui.Value, fautoriz, fmonto, sujetoCreditoFiscal, subTotal, fdesc, importeBaseCreditoFiscal, creditoFiscal, fccont, tbTipo.Value)
+        Dim res As Boolean = L_fnCompraComprobanteModificar(tbNumi.Text, ffec, fnit, frsocial, fnro, tbDui.Text, fautoriz, fmonto, sujetoCreditoFiscal, subTotal, fdesc, importeBaseCreditoFiscal, creditoFiscal, fccont, tbTipo.Value)
         If res Then
 
             ToastNotification.Show(Me, "Codigo de factura ".ToUpper + tbNumi.Text + " modificado con Exito.".ToUpper, My.Resources.GRABACION_EXITOSA, 5000, eToastGlowColor.Green, eToastPosition.TopCenter)
@@ -289,7 +289,7 @@ Public Class F1_Facturas
 
         End If
 
-        If (Not TbiNroFactura.Value > 0) Then
+        If (Not TbiNroFactura.Value >= 0) Then
             If (sms = String.Empty) Then
                 sms = "nro de la factura no valido.".ToUpper
             Else
@@ -348,7 +348,7 @@ Public Class F1_Facturas
                        My.Resources.WARNING,
                        4 * 1000,
                        eToastGlowColor.Red,
-                       eToastPosition.MiddleCenter)
+                       eToastPosition.TopCenter)
             Return False
             Exit Function
         End If
@@ -395,7 +395,7 @@ Public Class F1_Facturas
             TbNit.Text = .GetValue("fcanit")
             TbRazonSocial.Text = .GetValue("fcarsocial")
             TbiNroFactura.Value = .GetValue("fcanfac")
-            tbDui.Value = .GetValue("fcandui")
+            tbDui.Text = .GetValue("fcandui")
             TbNroAutorizacion.Text = .GetValue("fcaautoriz")
             TbdMontoFactura.Value = .GetValue("fcaitc")
             tbSujetoCreditoFiscal.Value = .GetValue("fcanscf")
@@ -477,6 +477,7 @@ Public Class F1_Facturas
     Private Sub tbImporteBaseCreditoFiscal_ValueChanged(sender As Object, e As EventArgs) Handles tbImporteBaseCreditoFiscal.ValueChanged
         tbCreditoFiscal.Value = tbImporteBaseCreditoFiscal.Value * 0.13
     End Sub
+
 #End Region
 
 End Class

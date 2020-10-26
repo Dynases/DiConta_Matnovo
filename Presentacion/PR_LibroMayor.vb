@@ -484,9 +484,11 @@ Public Class PR_LibroMayor
                 If filasFiltradas.Count > 0 Then
                     dt = filasFiltradas.CopyToDataTable
                 End If
+            Else
+                'saco el ultimo registro del total
+                dt.Rows(dt.Rows.Count - 1).Delete()
             End If
-            'saco el ultimo registro del total
-            dt.Rows(dt.Rows.Count - 1).Delete()
+
 
             'ahora lo mando al visualizador
             P_Global.Visualizador = New Visualizador

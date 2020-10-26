@@ -1647,6 +1647,8 @@ ControlChars.Lf & "Stack Trace:" & ControlChars.Lf & e.StackTrace
     Private Sub _prImprimir()
         Dim objrep As New R_Comprobante2
         Dim dt As New DataTable
+        Dim codReporte As String = "LibVen"
+        Dim dtTitulos As DataTable = L_prTitulosAll(codReporte)
         dt = L_prComprobanteReporteComprobante(tbNumi.Text)
 
         'ahora lo mando al visualizador
@@ -1658,7 +1660,7 @@ ControlChars.Lf & "Stack Trace:" & ControlChars.Lf & e.StackTrace
         objrep.SetParameterValue("nit", gs_empresaNit.ToUpper)
         objrep.SetParameterValue("Direccion", gs_empresaDireccion)
         objrep.SetParameterValue("ultimoRegistro", 0)
-        objrep.SetParameterValue("Autor", gs_user)
+        objrep.SetParameterValue("Autor", dtTitulos.Rows(1).Item("yedesc").ToString)
         P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
         P_Global.Visualizador.Show() 'Comentar
         P_Global.Visualizador.BringToFront() 'Comentar
