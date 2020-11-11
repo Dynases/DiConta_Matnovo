@@ -274,6 +274,9 @@ Public Class PR_LibroMayor
                     mesAnioDate = dt.Rows(i).Item("oafdoc")
                     mesAnio = dt.Rows(i).Item("mesanio")
                 End If
+                If mesAnioDate.Month <= 9 Then
+                    dt.Rows(i).Item("mesanio") = mesAnioDate.Year.ToString() + "0" + mesAnioDate.Month.ToString()
+                End If
                 dtCopia.ImportRow(dt.Rows(i))
             Next
 
