@@ -2882,6 +2882,12 @@ ControlChars.Lf & "Stack Trace:" & ControlChars.Lf & e.StackTrace
         Dim c As Integer = grAyudaCuenta.Col
         If e.KeyData = Keys.Enter And c >= 0 And f >= 0 And btnGrabar.Enabled = True Then
             If grAyudaCuenta.Tag = 0 Then 'significa que esta poniendo una cuenta
+                'Valida que no metan cuentas menores al nivel 5
+                If (grAyudaCuenta.GetValue("caniv") <= 4) Then
+                    ToastNotification.Show(Me, "Error: La cuenta seleccionada no corresponde a una cuenta operacional".ToUpper, My.Resources.WARNING, 4000, eToastGlowColor.Blue, eToastPosition.TopCenter)
+
+                    Return
+                End If
                 If True Then 'grAyudaCuenta.GetValue("caniv") = 5
                     Dim numiCuenta As String = grAyudaCuenta.GetValue("canumi")
                     Dim cod As String = grAyudaCuenta.GetValue("cacta")
