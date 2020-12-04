@@ -345,6 +345,8 @@ Partial Class PR_BalanceGeneral
         Me.tbPeriodo.Size = New System.Drawing.Size(68, 18)
         Me.tbPeriodo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.tbPeriodo.TabIndex = 0
+        Me.tbPeriodo.Value = True
+        Me.tbPeriodo.ValueObject = "Y"
         '
         'GroupPanel1
         '
